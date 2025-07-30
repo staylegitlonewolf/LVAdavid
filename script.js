@@ -231,3 +231,70 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     }
 });
+
+// Scroll to next section functionality
+function scrollToNextSection() {
+    const currentScrollPosition = window.pageYOffset;
+    const windowHeight = window.innerHeight;
+    const documentHeight = document.documentElement.scrollHeight;
+    
+    // Find the next section to scroll to
+    const sections = document.querySelectorAll('section');
+    let nextSection = null;
+    
+    for (let section of sections) {
+        const sectionTop = section.offsetTop;
+        const sectionBottom = sectionTop + section.offsetHeight;
+        
+        // If we're currently in this section or before it, and it's below current viewport
+        if (sectionTop > currentScrollPosition + windowHeight * 0.5) {
+            nextSection = section;
+            break;
+        }
+    }
+    
+    // If no next section found, scroll to bottom
+    if (!nextSection) {
+        window.scrollTo({
+            top: documentHeight - windowHeight,
+            behavior: 'smooth'
+        });
+        return;
+    }
+    
+    // Scroll to the next section
+    const targetPosition = nextSection.offsetTop - 80; // Account for fixed navbar
+    
+    window.scrollTo({
+        top: targetPosition,
+        behavior: 'smooth'
+    });
+}
+
+// Show/hide scroll arrow based on scroll position
+function toggleScrollArrow() {
+    const scrollArrow = document.querySelector('.scroll-arrow');
+    if (!scrollArrow) return;
+    
+    const scrollPosition = window.pageYOffset;
+    const windowHeight = window.innerHeight;
+    const documentHeight = document.documentElement.scrollHeight;
+    
+    // Show arrow if not at bottom, hide if at bottom
+    if (scrollPosition + windowHeight >= documentHeight - 100) {
+        scrollArrow.style.opacity = '0';
+        scrollArrow.style.pointerEvents = 'none';
+    } else {
+        scrollArrow.style.opacity = '1';
+        scrollArrow.style.pointerEvents = 'auto';
+    }
+}
+
+// Initialize scroll arrow functionality
+document.addEventListener('DOMContentLoaded', function() {
+    // Add scroll event listener for arrow visibility
+    window.addEventListener('scroll', toggleScrollArrow);
+    
+    // Initial check for arrow visibility
+    toggleScrollArrow();
+});
