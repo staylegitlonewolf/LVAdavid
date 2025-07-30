@@ -225,6 +225,57 @@ html[data-theme="dark"] .navbar {
     font-weight: 500;
 }
 
+/* Fullscreen Toggle */
+.fullscreen-toggle {
+    background: none;
+    border: none;
+    color: var(--text-primary);
+    font-size: 1.2rem;
+    cursor: pointer;
+    padding: 8px;
+    border-radius: 50%;
+    transition: all 0.3s ease;
+    margin-left: 8px;
+}
+
+.fullscreen-toggle:hover {
+    background: var(--shadow);
+    transform: scale(1.1);
+}
+
+.fullscreen-toggle i {
+    transition: transform 0.3s ease;
+}
+
+.fullscreen-toggle:hover i {
+    transform: scale(1.1);
+}
+
+/* Fullscreen mode styles */
+html[data-fullscreen="true"] {
+    overflow: hidden;
+}
+
+html[data-fullscreen="true"] .navbar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 10000;
+}
+
+html[data-fullscreen="true"] .hero {
+    height: 100vh;
+    min-height: 100vh;
+}
+
+html[data-fullscreen="true"] .services,
+html[data-fullscreen="true"] .about,
+html[data-fullscreen="true"] .team,
+html[data-fullscreen="true"] .certifications {
+    min-height: 100vh;
+}
+
 
 
 /* Hero Section */
@@ -543,6 +594,37 @@ html[data-theme="dark"] .hero {
     
     .theme-indicator {
         display: none;
+    }
+    
+    .fullscreen-toggle {
+        display: none;
+    }
+    
+    .mobile-controls {
+        display: flex;
+        align-items: center;
+        gap: 1rem;
+        margin-top: 1rem;
+        padding-top: 1rem;
+        border-top: 1px solid var(--border);
+    }
+    
+    .mobile-controls .theme-toggle,
+    .mobile-controls .fullscreen-toggle {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 40px;
+        height: 40px;
+        background: var(--shadow);
+        border-radius: 50%;
+        font-size: 1rem;
+    }
+    
+    .mobile-controls .theme-indicator {
+        display: block;
+        font-size: 0.9rem;
+        color: var(--text-secondary);
     }
     
     .nav-menu {

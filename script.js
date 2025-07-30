@@ -339,10 +339,108 @@ function initMobileNavigation() {
     });
 }
 
+// Fullscreen Functionality
+function initFullscreenToggle() {
+    const fullscreenToggle = document.getElementById('fullscreenToggle');
+    if (!fullscreenToggle) return;
+    
+    // Check if fullscreen API is supported
+    if (!document.fullscreenEnabled && 
+        !document.webkitFullscreenEnabled && 
+        !document.mozFullScreenEnabled && 
+        !document.msFullscreenEnabled) {
+        fullscreenToggle.style.display = 'none';
+        return;
+    }
+    
+    // Check if device is iPhone (iOS Safari doesn't support fullscreen)
+    const isIPhone = /iPhone|iPod/.test(navigator.userAgent);
+    if (isIPhone) {
+        fullscreenToggle.style.display = 'none';
+        return;
+    }
+    
+    function toggleFullscreen() {
+        const icon = fullscreenToggle.querySelector('i');
+        
+        if (!document.fullscreenElement && 
+            !document.webkitFullscreenElement && 
+            !document.mozFullScreenElement && 
+            !document.msFullscreenElement) {
+            // Enter fullscreen
+            const element = document.documentElement;
+            
+            if (element.requestFullscreen) {
+                element.requestFullscreen();
+            } else if (element.webkitRequestFullscreen) {
+                element.webkitRequestFullscreen();
+            } else if (element.mozRequestFullScreen) {
+                element.mozRequestFullScreen();
+            } else if (element.msRequestFullscreen) {
+                element.msRequestFullscreen();
+            }
+            
+            // Update icon and add fullscreen class
+            icon.className = 'fas fa-compress';
+            document.documentElement.setAttribute('data-fullscreen', 'true');
+            
+        } else {
+            // Exit fullscreen
+            if (document.exitFullscreen) {
+                document.exitFullscreen();
+            } else if (document.webkitExitFullscreen) {
+                document.webkitExitFullscreen();
+            } else if (document.mozCancelFullScreen) {
+                document.mozCancelFullScreen();
+            } else if (document.msExitFullscreen) {
+                document.msExitFullscreen();
+            }
+            
+            // Update icon and remove fullscreen class
+            icon.className = 'fas fa-expand';
+            document.documentElement.removeAttribute('data-fullscreen');
+        }
+        
+        // Add visual feedback
+        fullscreenToggle.style.transform = 'scale(1.2)';
+        setTimeout(() => {
+            fullscreenToggle.style.transform = 'scale(1)';
+        }, 200);
+    }
+    
+    // Add click event listener
+    fullscreenToggle.addEventListener('click', toggleFullscreen);
+    
+    // Listen for fullscreen change events
+    document.addEventListener('fullscreenchange', updateFullscreenState);
+    document.addEventListener('webkitfullscreenchange', updateFullscreenState);
+    document.addEventListener('mozfullscreenchange', updateFullscreenState);
+    document.addEventListener('MSFullscreenChange', updateFullscreenState);
+    
+    function updateFullscreenState() {
+        const icon = fullscreenToggle.querySelector('i');
+        const isFullscreen = !!(document.fullscreenElement || 
+                               document.webkitFullscreenElement || 
+                               document.mozFullScreenElement || 
+                               document.msFullscreenElement);
+        
+        if (isFullscreen) {
+            icon.className = 'fas fa-compress';
+            document.documentElement.setAttribute('data-fullscreen', 'true');
+        } else {
+            icon.className = 'fas fa-expand';
+            document.documentElement.removeAttribute('data-fullscreen');
+        }
+    }
+}
+
 // Initialize scroll arrow functionality
 document.addEventListener('DOMContentLoaded', function() {
     // Initialize mobile navigation
     initMobileNavigation();
+    
+    // Initialize fullscreen toggle
+    initFullscreenToggle();
     
     // Add scroll event listener for arrow visibility
     window.addEventListener('scroll', toggleScrollArrow);
