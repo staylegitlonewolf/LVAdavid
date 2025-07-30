@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Meet The Team - LVA.studio™</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Floating Particles -->
+    <div class="floating-particles">
+        <div class="particle"></div>
+        <div class="particle"></div>
+        <div class="particle"></div>
+        <div class="particle"></div>
+        <div class="particle"></div>
+        <div class="particle"></div>
+    </div>
+
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="nav-logo">
+                <img src="media/logo.png" alt="LVA.studio" class="logo-img">
+            </div>
+            
+            <ul class="nav-menu">
+                <li><a href="index.html#home" class="nav-link">Home</a></li>
+                <li><a href="index.html#services" class="nav-link">Services</a></li>
+                <li><a href="index.html#about" class="nav-link">About</a></li>
+                <li><a href="meet-the-team.html" class="nav-link active">Team</a></li>
+                <li><a href="certification.html" class="nav-link">Certifications</a></li>
+                <button id="themeToggle" class="theme-toggle">
+                    <i class="fas fa-moon"></i>
+                </button>
+                <li class="theme-indicator">
+                    <span id="currentTheme">Light</span>
+                </li>
+            </ul>
+            
+            <div class="nav-toggle">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </div>
+        </div>
+    </nav>
+    
+
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-background">
+       
+            <div class="hero-overlay"></div>
+        </div>
+        <div class="hero-content">
+            <h1 class="hero-title">
+                <span class="gradient-text">Meet Our Team</span>
+            </h1>
+            <span class="hero-subtitle">The Experts Behind Your Success</span>
+            <p class="hero-description">
+                Our dedicated team of professionals is committed to delivering exceptional results across all our services.
+            </p>
+        </div>
+    </section>
+
+    <!-- Team Section -->
+    <section class="team">
+        <div class="container">
+            <div class="section-header text-center">
+                <h2 class="section-title">Our Expert Team</h2>
+                <p class="section-subtitle">Meet the professionals who make it all possible</p>
+            </div>
+            
+            <div class="team-grid">
+                <!-- David Brown - Main Photo -->
+                <div class="team-member featured">
+                    <div class="member-image">
+                        <img src="media/mainPhoto.png" alt="David Brown" onclick="openImageLightbox('media/mainPhoto.png', 'David Brown')" style="cursor: pointer;">
+                    </div>
+                    <div class="member-info">
+                        <h3>David Brown</h3>
+                        <p class="member-title">Founder & CEO</p>
+                        <p class="member-description">
+                            Licensed Health Coverage Expert with access to all options. Leading our mission to connect clients with the best solutions across all services.
+                        </p>
+                        <div class="member-expertise">
+                            <span class="expertise-tag">Health Insurance</span>
+                            <span class="expertise-tag">Solar Solutions</span>
+                            <span class="expertise-tag">NIL Partnerships</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Christina James -->
+                <div class="team-member">
+                    <div class="member-image">
+                        <img src="media/David Meet The Team/Christina James.jpg" alt="Christina James" onclick="openImageLightbox('media/David Meet The Team/Christina James.jpg', 'Christina James')" style="cursor: pointer;">
+                    </div>
+                    <div class="member-info">
+                        <h3>Christina James</h3>
+                        <p class="member-title">Senior Consultant</p>
+                        <p class="member-description">
+                            Expert in client relations and service optimization, ensuring every client receives personalized attention.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Olivia Voth -->
+                <div class="team-member">
+                    <div class="member-image">
+                        <img src="media/David Meet The Team/Olivia Voth.jpg" alt="Olivia Voth" onclick="openImageLightbox('media/David Meet The Team/Olivia Voth.jpg', 'Olivia Voth')" style="cursor: pointer;">
+                    </div>
+                    <div class="member-info">
+                        <h3>Olivia Voth</h3>
+                        <p class="member-title">Digital Solutions Specialist</p>
+                        <p class="member-description">
+                            Specializes in web development and digital marketing strategies to maximize online presence.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Chauntel Bender -->
+                <div class="team-member">
+                    <div class="member-image">
+                        <img src="media/David Meet The Team/Chauntel Bender.jpg" alt="Chauntel Bender" onclick="openImageLightbox('media/David Meet The Team/Chauntel Bender.jpg', 'Chauntel Bender')" style="cursor: pointer;">
+                    </div>
+                    <div class="member-info">
+                        <h3>Chauntel Bender</h3>
+                        <p class="member-title">Solar Solutions Coordinator</p>
+                        <p class="member-description">
+                            Connects clients with trusted solar providers and manages installation processes.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Orlando Nieves -->
+                <div class="team-member">
+                    <div class="member-image">
+                        <img src="media/David Meet The Team/Orlando Nieves.jpg" alt="Orlando Nieves" onclick="openImageLightbox('media/David Meet The Team/Orlando Nieves.jpg', 'Orlando Nieves')" style="cursor: pointer;">
+                    </div>
+                    <div class="member-info">
+                        <h3>Orlando Nieves</h3>
+                        <p class="member-title">NIL Partnership Manager</p>
+                        <p class="member-description">
+                            Expert in Name, Image, and Likeness opportunities, maximizing athlete and brand partnerships.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Braeden LLauro -->
+                <div class="team-member">
+                    <div class="member-image">
+                        <img src="media/David Meet The Team/Braeden LLauro.jpg" alt="Braeden LLauro" onclick="openImageLightbox('media/David Meet The Team/Braeden LLauro.jpg', 'Braeden LLauro')" style="cursor: pointer;">
+                    </div>
+                    <div class="member-info">
+                        <h3>Braeden LLauro</h3>
+                        <p class="member-title">Technical Specialist</p>
+                        <p class="member-description">
+                            Handles technical implementations and ensures smooth service delivery across all platforms.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Matthias Wendler -->
+                <div class="team-member">
+                    <div class="member-image">
+                        <img src="media/David Meet The Team/Matthias Wendler.jpg" alt="Matthias Wendler" onclick="openImageLightbox('media/David Meet The Team/Matthias Wendler.jpg', 'Matthias Wendler')" style="cursor: pointer;">
+                    </div>
+                    <div class="member-info">
+                        <h3>Matthias Wendler</h3>
+                        <p class="member-title">Business Development</p>
+                        <p class="member-description">
+                            Focuses on expanding our service reach and building strategic partnerships.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <div class="footer-logo">
+                        <img src="media/logo.png" alt="LVA.studio">
+                        <span>LIVING VICTORIOUS ALWAYS™</span>
+                    </div>
+                    <p>Full-Service Digital Solutions. Professional web development, solar solutions, health insurance, and NIL partnerships.</p>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-facebook"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-linkedin"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                    </div>
+                </div>
+                
+                <div class="footer-section">
+                    <h4>Quick Links</h4>
+                    <ul>
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="index.html#services">Services</a></li>
+                        <li><a href="index.html#about">About</a></li>
+                        <li><a href="meet-the-team.html">Team</a></li>
+                        <li><a href="certification.html">Certifications</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-section">
+                    <h4>Contact Info</h4>
+                    <ul>
+                        <li><i class="fas fa-envelope"></i> staylegitdev@gmail.com</li>
+                        <li><i class="fas fa-phone"></i> (555) 123-4567</li>
+                        <li><i class="fas fa-map-marker-alt"></i> Nationwide Service</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <div class="footer-tagline">LIVING VICTORIOUS ALWAYS™</div>
+                <p>&copy; 2024 LVA.studio™. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Image Lightbox Modal -->
+    <div id="imageLightbox" class="image-lightbox-modal" style="display: none;">
+        <div class="image-lightbox-content">
+            <span class="image-lightbox-close" onclick="closeImageLightbox()">&times;</span>
+            <img id="lightboxImage" src="" alt="" class="lightbox-image">
+            <h3 id="lightboxTitle" class="lightbox-title"></h3>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
