@@ -508,6 +508,47 @@ function initFullscreenToggle() {
     }
 }
 
+// Department Filter Functionality
+function initDepartmentFilter() {
+    const deptButtons = document.querySelectorAll('.dept-btn');
+    const teamMembers = document.querySelectorAll('.team-member');
+    const noStaffMessage = document.getElementById('noStaffMessage');
+    const teamGrid = document.querySelector('.team-grid');
+
+    deptButtons.forEach(button => {
+        button.addEventListener('click', () => {
+            const selectedDept = button.getAttribute('data-department');
+            
+            // Update active button
+            deptButtons.forEach(btn => btn.classList.remove('active'));
+            button.classList.add('active');
+            
+            // Filter team members
+            let visibleMembers = 0;
+            
+            teamMembers.forEach(member => {
+                const memberDept = member.getAttribute('data-department');
+                
+                if (selectedDept === 'all' || memberDept === selectedDept) {
+                    member.style.display = 'block';
+                    visibleMembers++;
+                } else {
+                    member.style.display = 'none';
+                }
+            });
+            
+            // Show/hide no staff message
+            if (visibleMembers === 0) {
+                teamGrid.style.display = 'none';
+                noStaffMessage.style.display = 'block';
+            } else {
+                teamGrid.style.display = 'grid';
+                noStaffMessage.style.display = 'none';
+            }
+        });
+    });
+}
+
 // Initialize scroll arrow functionality
 document.addEventListener('DOMContentLoaded', function() {
     console.log('Page loaded - initializing fullscreen functionality');
@@ -518,6 +559,9 @@ document.addEventListener('DOMContentLoaded', function() {
     
     // Initialize fullscreen toggle
     initFullscreenToggle();
+    
+    // Initialize department filter (for team page)
+    initDepartmentFilter();
     
     // Add scroll event listener for arrow visibility
     window.addEventListener('scroll', toggleScrollArrow);

@@ -80,9 +80,17 @@
                 <p class="section-subtitle">Meet the professionals who make it all possible</p>
             </div>
             
+            <!-- Department Filter Buttons -->
+            <div class="department-filter">
+                <button class="dept-btn active" data-department="all">All Departments</button>
+                <button class="dept-btn" data-department="website">Website</button>
+                <button class="dept-btn" data-department="solar">Solar</button>
+                <button class="dept-btn" data-department="health">Health</button>
+            </div>
+            
             <div class="team-grid">
                 <!-- David Brown - Main Photo -->
-                <div class="team-member featured">
+                <div class="team-member featured" data-department="health">
                     <div class="member-image">
                         <img src="media/mainPhoto.png" alt="David Brown" onclick="openImageLightbox('media/mainPhoto.png', 'David Brown')" style="cursor: pointer;">
                     </div>
@@ -97,11 +105,19 @@
                             <span class="expertise-tag">Solar Solutions</span>
                             <span class="expertise-tag">NIL Partnerships</span>
                         </div>
+                        <div class="member-contact">
+                            <a href="tel:+1234567890" class="contact-btn phone">
+                                <i class="fas fa-phone"></i> (234) 567-890
+                            </a>
+                            <a href="mailto:david@lvastudio.com" class="contact-btn email">
+                                <i class="fas fa-envelope"></i> david@lvastudio.com
+                            </a>
+                        </div>
                     </div>
                 </div>
 
                 <!-- Christina James -->
-                <div class="team-member">
+                <div class="team-member" data-department="health">
                     <div class="member-image">
                         <img src="media/David Meet The Team/Christina James.jpg" alt="Christina James" onclick="openImageLightbox('media/David Meet The Team/Christina James.jpg', 'Christina James')" style="cursor: pointer;">
                     </div>
@@ -111,11 +127,19 @@
                         <p class="member-description">
                             Expert in client relations and service optimization, ensuring every client receives personalized attention.
                         </p>
+                        <div class="member-contact">
+                            <a href="tel:+1234567891" class="contact-btn phone">
+                                <i class="fas fa-phone"></i> (234) 567-891
+                            </a>
+                            <a href="mailto:christina@lvastudio.com" class="contact-btn email">
+                                <i class="fas fa-envelope"></i> christina@lvastudio.com
+                            </a>
+                        </div>
                     </div>
                 </div>
 
                 <!-- Olivia Voth -->
-                <div class="team-member">
+                <div class="team-member" data-department="website">
                     <div class="member-image">
                         <img src="media/David Meet The Team/Olivia Voth.jpg" alt="Olivia Voth" onclick="openImageLightbox('media/David Meet The Team/Olivia Voth.jpg', 'Olivia Voth')" style="cursor: pointer;">
                     </div>
@@ -125,11 +149,19 @@
                         <p class="member-description">
                             Specializes in web development and digital marketing strategies to maximize online presence.
                         </p>
+                        <div class="member-contact">
+                            <a href="tel:+1234567892" class="contact-btn phone">
+                                <i class="fas fa-phone"></i> (234) 567-892
+                            </a>
+                            <a href="mailto:olivia@lvastudio.com" class="contact-btn email">
+                                <i class="fas fa-envelope"></i> olivia@lvastudio.com
+                            </a>
+                        </div>
                     </div>
                 </div>
 
                 <!-- Chauntel Bender -->
-                <div class="team-member">
+                <div class="team-member" data-department="solar">
                     <div class="member-image">
                         <img src="media/David Meet The Team/Chauntel Bender.jpg" alt="Chauntel Bender" onclick="openImageLightbox('media/David Meet The Team/Chauntel Bender.jpg', 'Chauntel Bender')" style="cursor: pointer;">
                     </div>
@@ -139,11 +171,19 @@
                         <p class="member-description">
                             Connects clients with trusted solar providers and manages installation processes.
                         </p>
+                        <div class="member-contact">
+                            <a href="tel:+1234567893" class="contact-btn phone">
+                                <i class="fas fa-phone"></i> (234) 567-893
+                            </a>
+                            <a href="mailto:chauntel@lvastudio.com" class="contact-btn email">
+                                <i class="fas fa-envelope"></i> chauntel@lvastudio.com
+                            </a>
+                        </div>
                     </div>
                 </div>
 
                 <!-- Orlando Nieves -->
-                <div class="team-member">
+                <div class="team-member" data-department="health">
                     <div class="member-image">
                         <img src="media/David Meet The Team/Orlando Nieves.jpg" alt="Orlando Nieves" onclick="openImageLightbox('media/David Meet The Team/Orlando Nieves.jpg', 'Orlando Nieves')" style="cursor: pointer;">
                     </div>
@@ -153,11 +193,19 @@
                         <p class="member-description">
                             Expert in Name, Image, and Likeness opportunities, maximizing athlete and brand partnerships.
                         </p>
+                        <div class="member-contact">
+                            <a href="tel:+1234567894" class="contact-btn phone">
+                                <i class="fas fa-phone"></i> (234) 567-894
+                            </a>
+                            <a href="mailto:orlando@lvastudio.com" class="contact-btn email">
+                                <i class="fas fa-envelope"></i> orlando@lvastudio.com
+                            </a>
+                        </div>
                     </div>
                 </div>
 
                 <!-- Braeden LLauro -->
-                <div class="team-member">
+                <div class="team-member" data-department="website">
                     <div class="member-image">
                         <img src="media/David Meet The Team/Braeden LLauro.jpg" alt="Braeden LLauro" onclick="openImageLightbox('media/David Meet The Team/Braeden LLauro.jpg', 'Braeden LLauro')" style="cursor: pointer;">
                     </div>
@@ -167,11 +215,19 @@
                         <p class="member-description">
                             Handles technical implementations and ensures smooth service delivery across all platforms.
                         </p>
+                        <div class="member-contact">
+                            <a href="tel:+1234567895" class="contact-btn phone">
+                                <i class="fas fa-phone"></i> (234) 567-895
+                            </a>
+                            <a href="mailto:braeden@lvastudio.com" class="contact-btn email">
+                                <i class="fas fa-envelope"></i> braeden@lvastudio.com
+                            </a>
+                        </div>
                     </div>
                 </div>
 
                 <!-- Matthias Wendler -->
-                <div class="team-member">
+                <div class="team-member" data-department="health">
                     <div class="member-image">
                         <img src="media/David Meet The Team/Matthias Wendler.jpg" alt="Matthias Wendler" onclick="openImageLightbox('media/David Meet The Team/Matthias Wendler.jpg', 'Matthias Wendler')" style="cursor: pointer;">
                     </div>
@@ -181,7 +237,24 @@
                         <p class="member-description">
                             Focuses on expanding our service reach and building strategic partnerships.
                         </p>
+                        <div class="member-contact">
+                            <a href="tel:+1234567896" class="contact-btn phone">
+                                <i class="fas fa-phone"></i> (234) 567-896
+                            </a>
+                            <a href="mailto:matthias@lvastudio.com" class="contact-btn email">
+                                <i class="fas fa-envelope"></i> matthias@lvastudio.com
+                            </a>
+                        </div>
                     </div>
+                </div>
+            </div>
+            
+            <!-- No Staff Message -->
+            <div id="noStaffMessage" class="no-staff-message" style="display: none;">
+                <div class="no-staff-content">
+                    <i class="fas fa-users-slash"></i>
+                    <h3>No Staff Available</h3>
+                    <p>We're currently building our team for this department. Please check back soon or contact us for more information.</p>
                 </div>
             </div>
         </div>
