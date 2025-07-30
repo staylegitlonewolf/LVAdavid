@@ -253,7 +253,6 @@ html[data-theme="dark"] .navbar {
 
 /* Fullscreen mode styles */
 html[data-fullscreen="true"] {
-    overflow: hidden;
 }
 
 html[data-fullscreen="true"] .navbar {
