@@ -597,7 +597,7 @@ html[data-theme="dark"] .hero {
     }
     
     .fullscreen-toggle {
-        display: none;
+        display: none; /* Hide from main nav on mobile */
     }
     
     .mobile-controls {
@@ -607,18 +607,32 @@ html[data-theme="dark"] .hero {
         margin-top: 1rem;
         padding-top: 1rem;
         border-top: 1px solid var(--border);
+        width: 100%;
+        justify-content: center;
     }
     
     .mobile-controls .theme-toggle,
     .mobile-controls .fullscreen-toggle {
-        display: flex;
+        display: flex !important; /* Force display in mobile controls */
         align-items: center;
         justify-content: center;
-        width: 40px;
-        height: 40px;
+        width: 44px;
+        height: 44px;
         background: var(--shadow);
         border-radius: 50%;
-        font-size: 1rem;
+        font-size: 1.1rem;
+        border: 2px solid var(--border);
+        transition: all 0.3s ease;
+    }
+    
+    .mobile-controls .fullscreen-toggle {
+        background: var(--accent);
+        color: white;
+    }
+    
+    .mobile-controls .fullscreen-toggle:hover {
+        background: var(--accent-hover);
+        transform: scale(1.1);
     }
     
     .mobile-controls .theme-indicator {

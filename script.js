@@ -344,61 +344,133 @@ function initFullscreenToggle() {
     const fullscreenToggle = document.getElementById('fullscreenToggle');
     if (!fullscreenToggle) return;
     
+    // Enhanced fullscreen API support detection
+    const fullscreenEnabled = document.fullscreenEnabled || 
+                             document.webkitFullscreenEnabled || 
+                             document.mozFullScreenEnabled || 
+                             document.msFullscreenEnabled;
+    
     // Check if fullscreen API is supported
-    if (!document.fullscreenEnabled && 
-        !document.webkitFullscreenEnabled && 
-        !document.mozFullScreenEnabled && 
-        !document.msFullscreenEnabled) {
+    if (!fullscreenEnabled) {
+        console.log('Fullscreen API not supported');
         fullscreenToggle.style.display = 'none';
         return;
     }
     
-    // Check if device is iPhone (iOS Safari doesn't support fullscreen)
-    const isIPhone = /iPhone|iPod/.test(navigator.userAgent);
+    // Enhanced device detection for Android
+    const userAgent = navigator.userAgent.toLowerCase();
+    const isIPhone = /iphone|ipod/.test(userAgent);
+    const isAndroid = /android/.test(userAgent);
+    const isMobile = /mobile|android|iphone|ipad|phone/.test(userAgent);
+    
+    console.log('Device detection:', { isIPhone, isAndroid, isMobile, userAgent });
+    
+    // Hide button on iPhone (iOS Safari doesn't support fullscreen)
     if (isIPhone) {
+        console.log('Hiding fullscreen button on iPhone');
         fullscreenToggle.style.display = 'none';
         return;
+    }
+    
+    // For Android, we'll show the button but handle potential issues
+    if (isAndroid) {
+        console.log('Android device detected - fullscreen may have limitations');
+    }
+    
+    // Update debug info
+    const debugInfo = document.getElementById('debugInfo');
+    if (debugInfo) {
+        debugInfo.innerHTML = `
+            Device: ${isAndroid ? 'Android' : isIPhone ? 'iPhone' : 'Desktop'}<br>
+            Fullscreen API: ${fullscreenEnabled ? 'Supported' : 'Not Supported'}<br>
+            Browser: ${userAgent.split(' ').slice(-2).join(' ')}
+        `;
     }
     
     function toggleFullscreen() {
         const icon = fullscreenToggle.querySelector('i');
         
-        if (!document.fullscreenElement && 
-            !document.webkitFullscreenElement && 
-            !document.mozFullScreenElement && 
-            !document.msFullscreenElement) {
+        // Check current fullscreen state
+        const isFullscreen = !!(document.fullscreenElement || 
+                               document.webkitFullscreenElement || 
+                               document.mozFullScreenElement || 
+                               document.msFullscreenElement);
+        
+        if (!isFullscreen) {
             // Enter fullscreen
             const element = document.documentElement;
             
-            if (element.requestFullscreen) {
-                element.requestFullscreen();
-            } else if (element.webkitRequestFullscreen) {
-                element.webkitRequestFullscreen();
-            } else if (element.mozRequestFullScreen) {
-                element.mozRequestFullScreen();
-            } else if (element.msRequestFullscreen) {
-                element.msRequestFullscreen();
-            }
+            // Try different fullscreen methods with error handling
+            const enterFullscreen = async () => {
+                try {
+                    if (element.requestFullscreen) {
+                        await element.requestFullscreen();
+                    } else if (element.webkitRequestFullscreen) {
+                        await element.webkitRequestFullscreen();
+                    } else if (element.mozRequestFullScreen) {
+                        await element.mozRequestFullScreen();
+                    } else if (element.msRequestFullscreen) {
+                        await element.msRequestFullscreen();
+                    } else {
+                        throw new Error('No fullscreen method available');
+                    }
+                    
+                    // Update icon and add fullscreen class
+                    icon.className = 'fas fa-compress';
+                    document.documentElement.setAttribute('data-fullscreen', 'true');
+                    console.log('Successfully entered fullscreen mode');
+                    
+                } catch (error) {
+                    console.error('Failed to enter fullscreen:', error);
+                    
+                    // For Android, try alternative approach
+                    if (isAndroid) {
+                        console.log('Trying alternative fullscreen approach for Android');
+                        // Some Android browsers need a user gesture and specific element
+                        try {
+                            if (element.webkitRequestFullscreen) {
+                                await element.webkitRequestFullscreen();
+                                icon.className = 'fas fa-compress';
+                                document.documentElement.setAttribute('data-fullscreen', 'true');
+                                console.log('Android fullscreen successful');
+                            }
+                        } catch (androidError) {
+                            console.error('Android fullscreen also failed:', androidError);
+                            alert('Fullscreen mode is not supported on this device/browser');
+                        }
+                    } else {
+                        alert('Fullscreen mode is not supported on this device/browser');
+                    }
+                }
+            };
             
-            // Update icon and add fullscreen class
-            icon.className = 'fas fa-compress';
-            document.documentElement.setAttribute('data-fullscreen', 'true');
+            enterFullscreen();
             
         } else {
             // Exit fullscreen
-            if (document.exitFullscreen) {
-                document.exitFullscreen();
-            } else if (document.webkitExitFullscreen) {
-                document.webkitExitFullscreen();
-            } else if (document.mozCancelFullScreen) {
-                document.mozCancelFullScreen();
-            } else if (document.msExitFullscreen) {
-                document.msExitFullscreen();
-            }
+            const exitFullscreen = async () => {
+                try {
+                    if (document.exitFullscreen) {
+                        await document.exitFullscreen();
+                    } else if (document.webkitExitFullscreen) {
+                        await document.webkitExitFullscreen();
+                    } else if (document.mozCancelFullScreen) {
+                        await document.mozCancelFullScreen();
+                    } else if (document.msExitFullscreen) {
+                        await document.msExitFullscreen();
+                    }
+                    
+                    // Update icon and remove fullscreen class
+                    icon.className = 'fas fa-expand';
+                    document.documentElement.removeAttribute('data-fullscreen');
+                    console.log('Successfully exited fullscreen mode');
+                    
+                } catch (error) {
+                    console.error('Failed to exit fullscreen:', error);
+                }
+            };
             
-            // Update icon and remove fullscreen class
-            icon.className = 'fas fa-expand';
-            document.documentElement.removeAttribute('data-fullscreen');
+            exitFullscreen();
         }
         
         // Add visual feedback
@@ -411,7 +483,7 @@ function initFullscreenToggle() {
     // Add click event listener
     fullscreenToggle.addEventListener('click', toggleFullscreen);
     
-    // Listen for fullscreen change events
+    // Listen for fullscreen change events to keep UI in sync
     document.addEventListener('fullscreenchange', updateFullscreenState);
     document.addEventListener('webkitfullscreenchange', updateFullscreenState);
     document.addEventListener('mozfullscreenchange', updateFullscreenState);
@@ -427,15 +499,20 @@ function initFullscreenToggle() {
         if (isFullscreen) {
             icon.className = 'fas fa-compress';
             document.documentElement.setAttribute('data-fullscreen', 'true');
+            console.log('Fullscreen state updated: entered');
         } else {
             icon.className = 'fas fa-expand';
             document.documentElement.removeAttribute('data-fullscreen');
+            console.log('Fullscreen state updated: exited');
         }
     }
 }
 
 // Initialize scroll arrow functionality
 document.addEventListener('DOMContentLoaded', function() {
+    console.log('Page loaded - initializing fullscreen functionality');
+    console.log('User Agent:', navigator.userAgent);
+    
     // Initialize mobile navigation
     initMobileNavigation();
     
