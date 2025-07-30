@@ -224,20 +224,7 @@ html[data-theme="dark"] .navbar {
     font-weight: 500;
 }
 
-.nav-toggle {
-    display: none;
-    flex-direction: column;
-    cursor: pointer;
-    padding: 5px;
-}
 
-.nav-toggle .bar {
-    width: 25px;
-    height: 3px;
-    background-color: var(--text-primary);
-    margin: 3px 0;
-    transition: 0.3s;
-}
 
 /* Hero Section */
 .hero {
@@ -558,11 +545,21 @@ html[data-theme="dark"] .hero {
     }
     
     .nav-menu {
-        display: none;
+        display: flex;
+        flex-direction: column;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        right: 0;
+        background: var(--bg-primary);
+        box-shadow: 0 4px 20px var(--shadow);
+        padding: 1rem;
+        gap: 1rem;
+        z-index: 1000;
     }
     
     .nav-toggle {
-        display: flex;
+        display: none;
     }
     
     .hero-buttons {
