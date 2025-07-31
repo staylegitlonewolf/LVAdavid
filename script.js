@@ -78,6 +78,28 @@ function initSmoothScrolling() {
     });
 }
 
+// Scroll to home function
+function scrollToHome() {
+    const homeSection = document.querySelector('#home');
+    if (homeSection) {
+        const offsetTop = homeSection.offsetTop - 80; // Account for fixed navbar
+        
+        window.scrollTo({
+            top: offsetTop,
+            behavior: 'smooth'
+        });
+        
+        // Add visual feedback
+        const homeLink = document.querySelector('.nav-link[href="#home"]');
+        if (homeLink) {
+            homeLink.style.transform = 'scale(1.1)';
+            setTimeout(() => {
+                homeLink.style.transform = 'scale(1)';
+            }, 200);
+        }
+    }
+}
+
 // Animate stats on scroll
 function animateStats() {
     const stats = document.querySelectorAll('.stat-number');
@@ -583,6 +605,29 @@ function initDepartmentFilter() {
     });
 }
 
+// FAQ Functionality
+function initFAQ() {
+    const faqItems = document.querySelectorAll('.faq-item');
+    
+    faqItems.forEach(item => {
+        const question = item.querySelector('.faq-question');
+        
+        question.addEventListener('click', () => {
+            const isActive = item.classList.contains('active');
+            
+            // Close all other FAQ items
+            faqItems.forEach(otherItem => {
+                otherItem.classList.remove('active');
+            });
+            
+            // Toggle current item
+            if (!isActive) {
+                item.classList.add('active');
+            }
+        });
+    });
+}
+
 // Initialize scroll arrow functionality
 document.addEventListener('DOMContentLoaded', function() {
     console.log('Page loaded - initializing fullscreen functionality');
@@ -596,6 +641,9 @@ document.addEventListener('DOMContentLoaded', function() {
     
     // Initialize department filter (for team page)
     initDepartmentFilter();
+    
+    // Initialize FAQ functionality
+    initFAQ();
     
     // Add scroll event listener for arrow visibility
     window.addEventListener('scroll', toggleScrollArrow);

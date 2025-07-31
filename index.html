@@ -28,8 +28,9 @@
             </div>
             
             <ul class="nav-menu">
-                <li><a href="#home" class="nav-link">Home</a></li>
+                <li><a href="#home" class="nav-link" onclick="scrollToHome()">Home</a></li>
                 <li><a href="#services" class="nav-link">Services</a></li>
+                <li><a href="#other-services" class="nav-link">Other Services</a></li>
                 <li><a href="#about" class="nav-link">About</a></li>
                 <li><a href="meet-the-team.html" class="nav-link">Team</a></li>
                 <li><a href="certification.html" class="nav-link">Certifications</a></li>
@@ -44,10 +45,6 @@
                         <span id="currentTheme">Light</span>
                     </span>
                 </li>
-                <!-- Debug info for Android testing -->
-                <li class="debug-info" style="font-size: 0.8rem; color: var(--text-secondary); margin-top: 0.5rem;">
-                    <div id="debugInfo">Loading...</div>
-                </li>
             </ul>
             
             <div class="nav-toggle">
@@ -61,9 +58,9 @@
     <!-- Hero Section -->
     <section id="home" class="hero">
         <div class="hero-content">
-            <h1 class="hero-title">
+            <h2 class="hero-title">
                 <span class="gradient-text">LIVING VICTORIOUS ALWAYS™</span>              
-            </h1>
+            </h2>
             <p class="hero-description">
                 We build websites, connect you with solar solutions, secure your health insurance, 
                 and maximize your NIL opportunities. Your success is our mission.
@@ -75,44 +72,17 @@
         </div>
     </section>
 
-    <!-- Services Section -->
+    <!-- Health Insurance Section -->
     <section id="services" class="services">
         <div class="container">
             <div class="section-header">
-                <h2 class="section-title">Our Services</h2>
-                <p class="section-subtitle">Comprehensive solutions for modern businesses and individuals</p>
+                <h1 class="section-title">Finding the right health plan shouldn’t be complicated..</h1>
+            
             </div>
             
             <div class="services-grid">
-                <!-- Web Development -->
-                <div class="service-card">
-                    <div class="service-icon">
-                        <i class="fas fa-code"></i>
-                    </div>
-                    <h3>Web Development</h3>
-                    <p>Custom websites that convert visitors into customers. Built with modern technologies and optimized for performance.</p>
-                    <ul class="service-features">
-                        <li>Custom Design & Development</li>
-                        <li>SEO Optimization</li>
-                        <li>Mobile-First Responsive</li>
-                        <li>E-commerce Solutions</li>
-                    </ul>
-                </div>
-
-                <!-- Solar Solutions -->
-                <div class="service-card">
-                    <div class="service-icon">
-                        <i class="fas fa-solar-panel"></i>
-                    </div>
-                    <h3>Solar Solutions</h3>
-                    <p>Connect with trusted solar providers to reduce energy costs and contribute to a sustainable future.</p>
-                    <ul class="service-features">
-                        <li>Residential & Commercial</li>
-                        <li>Expert Consultation</li>
-                        <li>Installation Support</li>
-                        <li>Financing Options</li>
-                    </ul>
-                </div>
+        
+       
 
                 <!-- Health Insurance -->
                 <div class="service-card">
@@ -120,46 +90,118 @@
                         <i class="fas fa-shield-alt"></i>
                     </div>
                     <h3>Health Insurance</h3>
-                    <p>Comprehensive health insurance solutions for individuals, families, and businesses with competitive pricing and excellent coverage.</p>
+                    <p>Comprehensive health insurance solutions for individuals, families, and businesses with competitive pricing and excellent coverage. Tap "Get Covered" to schedule your personalized consultation.</p>
                     
-                    <div class="pricing-highlights">
-                        <div class="pricing-item">
-                            <span class="price">$120<span>/month</span></span>
-                            <span class="plan-type">Basic Coverage</span>
-                        </div>
-                        <div class="pricing-item">
-                            <span class="price">$300<span>/month</span></span>
-                            <span class="plan-type">Family Plans</span>
-                        </div>
-                        <div class="pricing-item">
-                            <span class="price">$225<span>/month</span></span>
-                            <span class="plan-type">Self-Employed</span>
-                        </div>
+                    <div class="service-features-container">
+                        <ul class="service-features service-features-left">
+                            <li>Individual & Family Plans</li>
+                            <li>Business Group Coverage</li>
+                            <li>Medicare Supplements</li>
+                            <li>Dental & Vision Plans</li>
+                            <li>Prescription Drug Coverage</li>
+                        </ul>
+                        <ul class="service-features service-features-right">
+                            <li>Mental Health Services</li>
+                            <li>Large PPO Networks (No Referrals)</li>
+                            <li>Fast Approval Process</li>
+                            <li>Lower Rates for Healthy Individuals</li>
+                            <li>Don't Wait for Open Enrollment</li>
+                        </ul>
                     </div>
                     
-                    <ul class="service-features">
-                        <li>Individual & Family Plans</li>
-                        <li>Business Group Coverage</li>
-                        <li>Medicare Supplements</li>
-                        <li>Dental & Vision Plans</li>
-                        <li>Prescription Drug Coverage</li>
-                        <li>Mental Health Services</li>
-                    </ul>
+                    <div class="service-pricing">
+                        <div class="pricing-tiers">
+                            <div class="pricing-tier">
+                                <span class="tier-price">$120<span>/month</span></span>
+                                <span class="tier-name">Basic Coverage</span>
+                            </div>
+                            <div class="pricing-tier">
+                                <span class="tier-price">$225<span>/month</span></span>
+                                <span class="tier-name">Self-Employed</span>
+                            </div>
+                            <div class="pricing-tier">
+                                <span class="tier-price">$300<span>/month</span></span>
+                                <span class="tier-name">Family Plans</span>
+                            </div>
+                        </div>
+                        <div class="service-cta">
+                            <a href="#contact" class="btn btn-primary">Get Covered Today</a>
+                        </div>
+                    </div>
                 </div>
   
-                <!-- NIL Partnerships -->
-                <div class="service-card">
-                    <div class="service-icon">
-                        <i class="fas fa-star"></i>
+            
+            </div>
+        </div>
+    </section>
+
+    <!-- Other Services Section -->
+    <section id="other-services" class="other-services">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Additional Services</h2>
+                <p class="section-subtitle">Expanding your opportunities with specialized solutions</p>
+            </div>
+            
+            <div class="other-services-grid">
+                <!-- Web Development -->
+                <div class="other-service-card">
+                    <div class="other-service-icon">
+                        <i class="fas fa-laptop-code"></i>
                     </div>
-                    <h3>NIL Partnerships</h3>
-                    <p>Maximize your Name, Image, and Likeness opportunities with strategic partnerships and brand development.</p>
-                    <ul class="service-features">
-                        <li>Brand Development</li>
-                        <li>Sponsorship Deals</li>
-                        <li>Marketing Strategy</li>
-                        <li>Legal Guidance</li>
+                    <h3>Web Development</h3>
+                    <p>Professional website development services tailored to your business needs. From simple portfolios to complex e-commerce platforms.</p>
+                    <ul class="other-service-features">
+                        <li>Custom Website Design</li>
+                        <li>E-commerce Solutions</li>
+                        <li>Content Management Systems</li>
+                        <li>Website Maintenance</li>
+                        <li>SEO Optimization</li>
+                        <li>Mobile Responsive Design</li>
                     </ul>
+                    <div class="other-service-pricing">
+                        <span class="other-service-price">Starting at $500</span>
+                    </div>
+                </div>
+
+                <!-- Solar Services -->
+                <div class="other-service-card">
+                    <div class="other-service-icon">
+                        <i class="fas fa-solar-panel"></i>
+                    </div>
+                    <h3>Solar Solutions</h3>
+                    <p>Connect with trusted solar providers to reduce energy costs and contribute to a sustainable future for your home or business.</p>
+                    <ul class="other-service-features">
+                        <li>Residential Solar Installation</li>
+                        <li>Commercial Solar Solutions</li>
+                        <li>Solar Panel Maintenance</li>
+                        <li>Energy Efficiency Consulting</li>
+                        <li>Financing & Tax Incentives</li>
+                        <li>Solar System Monitoring</li>
+                    </ul>
+                    <div class="other-service-pricing">
+                        <span class="other-service-price">Free Consultation</span>
+                    </div>
+                </div>
+
+                <!-- Sponsorship/NIL -->
+                <div class="other-service-card">
+                    <div class="other-service-icon">
+                        <i class="fas fa-handshake"></i>
+                    </div>
+                    <h3>Sponsorship & NIL</h3>
+                    <p>Maximize your Name, Image, and Likeness opportunities with strategic partnerships and professional brand development.</p>
+                    <ul class="other-service-features">
+                        <li>NIL Partnership Development</li>
+                        <li>Brand Sponsorship Deals</li>
+                        <li>Marketing Strategy</li>
+                        <li>Legal Guidance & Contracts</li>
+                        <li>Social Media Management</li>
+                        <li>Revenue Optimization</li>
+                    </ul>
+                    <div class="other-service-pricing">
+                        <span class="other-service-price">Commission Based</span>
+                    </div>
                 </div>
             </div>
         </div>
@@ -167,38 +209,86 @@
 
     <!-- About Section -->
     <section id="about" class="about">
-        <div class="container">
-            <div class="section-header">
-                <h2 class="section-title">About LVA.studio™</h2>
-                <p class="section-subtitle">We're a full-service digital solutions company helping businesses and individuals succeed in the modern world.</p>
-            </div>
+       
             
-            <div class="about-content">
-                <div class="about-text">
-                    <h2>About LVA.studio™</h2>
-                    <p>We are a full-service digital solutions company dedicated to helping businesses and individuals achieve their goals through innovative technology and strategic partnerships.</p>
-                    <p>Our founder, David Brown, is a licensed health coverage expert with access to all options, ensuring our clients receive the best possible solutions across all our services.</p>
-                    <div class="about-stats">
-                        <div class="stat">
-                            <div class="stat-number" data-target="500">0</div>
-                            <div class="stat-label">Happy Clients</div>
-                        </div>
-                        <div class="stat">
-                            <div class="stat-number" data-target="50">0</div>
-                            <div class="stat-label">States Covered</div>
-                        </div>
-                        <div class="stat">
-                            <div class="stat-number" data-target="1000">0</div>
-                            <div class="stat-label">Projects Completed</div>
-                        </div>
-                    </div>
-                </div>
-                <div class="about-image">
-                    <img src="media/mainPhoto.png" alt="David Brown - LVA.studio Founder">
-                </div>
-            </div>
+                         <div class="about-content">
+                 <div class="about-image">
+                     <img src="media/mainPhoto.png" alt="David Brown - LVA.studio Founder">
+                 </div>
+                 <div class="about-text">
+                     <h2>Finding the right health plan shouldn’t be complicated. Let us guide you to affordable, reliable coverage that fits your lifestyle.</h2>
+                 
+                     <p>Our founder, David Brown, is a licensed health coverage expert with access to all options, ensuring our clients receive the best possible solutions across all our services.</p>
+                     <div class="about-stats">
+                         <div class="stat">
+                             <div class="stat-number" data-target="500">0</div>
+                             <div class="stat-label">Happy Clients</div>
+                         </div>
+                         <div class="stat">
+                             <div class="stat-number" data-target="50">0</div>
+                             <div class="stat-label">States Covered</div>
+                         </div>
+                         <div class="stat">
+                             <div class="stat-number" data-target="1000">0</div>
+                             <div class="stat-label">Projects Completed</div>
+                         </div>
+                     </div>
+                 </div>
+             </div>
         </div>
     </section>
+
+         <!-- FAQ Section -->
+     <section id="faq" class="faq">
+         <div class="container">
+             <div class="section-header">
+                 <h2 class="section-title">Frequently Asked Questions</h2>
+                 <p class="section-subtitle">Get answers to common questions about our services</p>
+             </div>
+             
+             <div class="faq-grid">
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <h3>We proudly serve residents in ?</h3>
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <p>AL, AR, CO, DE, FL, GA, IA, IL, IN, KS, KY, LA, MD, MI, MO, MS, MT, NC, NE, NV, OH, OK, SC, SD, TN, TX, UT, VA, WI, WV, WY</p>
+                    </div>
+                </div>
+
+                 <div class="faq-item">
+                     <div class="faq-question">
+                         <h3>Can you help with both individual and family plans?</h3>
+                         <i class="fas fa-chevron-down"></i>
+                     </div>
+                     <div class="faq-answer">
+                         <p>Absolutely. We offer a wide range of plans for individuals, couples, and families.</p>
+                     </div>
+                 </div>
+                 
+                 <div class="faq-item">
+                     <div class="faq-question">
+                         <h3>How long does it take to get coverage?</h3>
+                         <i class="fas fa-chevron-down"></i>
+                     </div>
+                     <div class="faq-answer">
+                         <p>Most clients are covered the same day they apply, often within a few hours.</p>
+                     </div>
+                 </div>
+                 
+                 <div class="faq-item">
+                     <div class="faq-question">
+                         <h3>Do you charge for consultations?</h3>
+                         <i class="fas fa-chevron-down"></i>
+                     </div>
+                     <div class="faq-answer">
+                         <p>No, all consultations are 100% free and come with no obligation.</p>
+                     </div>
+                 </div>
+             </div>
+         </div>
+     </section>
 
     <!-- Footer -->
     <footer class="footer">
@@ -207,9 +297,9 @@
                 <div class="footer-section">
                     <div class="footer-logo">
                         <img src="media/logo.png" alt="LVA.studio">
-                        <span>LVA.studio™</span>
+                        <span>Living Victorious Always™</span>
                     </div>
-                    <p>Living Victorious Always. We help businesses and individuals succeed through comprehensive digital solutions.</p>
+                    <p>We help businesses and individuals succeed through comprehensive solutions.</p>
                     <div class="social-links">
                         <a href="#"><i class="fab fa-facebook-f"></i></a>
                         <a href="#"><i class="fab fa-twitter"></i></a>
@@ -233,6 +323,7 @@
                     <ul>
                         <li><a href="#home">Home</a></li>
                         <li><a href="#services">Services</a></li>
+                        <li><a href="#other-services">Other Services</a></li>
                         <li><a href="#about">About</a></li>
                         <li><a href="meet-the-team.html">Team</a></li>
                         <li><a href="certification.html">Certifications</a></li>
@@ -242,16 +333,16 @@
                 <div class="footer-section">
                     <h4>Contact Info</h4>
                     <ul>
-                        <li><i class="fas fa-envelope"></i> staylegitdev@gmail.com</li>
-                        <li><i class="fas fa-phone"></i> (555) 123-4567</li>
-                        <li><i class="fas fa-map-marker-alt"></i> Nationwide Service</li>
+                        <li><i class="fas fa-envelope"></i> ELEVATEDHEATLHDAVID@GMAIL.COM</li>
+                        <li><i class="fas fa-phone"></i> (813)647-1118</li>
+                        <li><i class="fas fa-map-marker-alt"></i> United States</li>
                     </ul>
                 </div>
             </div>
   
             <div class="footer-bottom">
-                <div class="footer-tagline">LIVING VICTORIOUS ALWAYS™</div>
-                <p>&copy; 2024 LVA.studio™. All rights reserved.</p>
+                <div class="footer-tagline">&copy; 2025 LVA.studio™. All rights reserved.</div>
+               
             </div>
         </div>
     </footer>
